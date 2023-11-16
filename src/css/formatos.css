@@ -1,0 +1,57 @@
+.menu {
+    background-color: blue;
+    color: aliceblue;
+    display: flex;
+    padding: 10px;
+}
+
+.menu p {
+    margin: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+a:hover {
+    color: orange;
+}
+
+a:active {
+    color: blue;
+}
+
+.area-principal {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: orange;
+}
+
+div {
+    display: flex;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+.rodape {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+}

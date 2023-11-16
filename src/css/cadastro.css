@@ -1,0 +1,17 @@
+body {
+    background-color: orange;
+}
+
+.formulario {
+    margin-left: 10px;
+    background-color: orange;
+}
+
+.botao {
+    background-color: gray;
+    color: aliceblue;
+}
+
+.rodape {
+    margin-top: 356px;
+}

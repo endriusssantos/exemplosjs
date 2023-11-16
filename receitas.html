@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Receitas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy6mE+Rj4xofGAd8wmyKc8RqF2nD9tJ9ag" crossorigin="anonymous">
+    <link rel="stylesheet" href="./src/css/receitas.css">
+    <style>
+        body {
+            background-color: #ffc107;
+        }
+
+        .container-fluid {
+            background-color: #ffc107;
+        }
+
+        #pnlCatalogo {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 250px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body onload="preencheCatalogo()">
+
+    <div class="container-fluid bg-warning">
+        <h1>Catálogo de Receitas</h1>
+        <div id="pnlCatalogo"></div>
+    </div>
+
+    <script class="pratos">
+        const receitas = [
+            {
+                titulo: "Hambúrguer",
+                imagem: "./src/images/hamburguer.png",
+                preparo: "Ponha o hambúrguer na base do pão, o bacon já previamente preparado, em seguida a cebola caramelizada e por último a maionese na tampa do pão.",
+                ingredientes: ["Pão de Hambúrguer", "Carne Moída com 20 a 25% de gordura", "Maionese"]
+            },
+            {
+                titulo: "Strogonoff",
+                imagem: "./src/images/strogonoff.png",
+                preparo: "Pique a cebola em pequenos pedaços. Aqueça uma frigideira e coloque a manteiga. Refogue a cebola picada.",
+                ingredientes: ["300g de Mignon Picado para Strogonoff", "1 Cebola Média Picada", "1 Colher (sopa) de Manteiga"]
+            },
+
+            {
+                titulo: "Palha Italiana",
+                imagem: "./src/images/palha-italiana.png",
+                preparo: "Quebre os biscoitos de maisena em pedaços pequenos e reserve. Em uma panela, acrescente o leite condensado, a manteiga e o chocolate em pó. ",
+                ingredientes: ["2 Latas de Leite Condensado", "1 Lata de Creme de Leite com o Soro", "1 Colher de Sopa de Manteiga"]
+            }
+        ];
+
+        function getListaIngredientes(ingredientes) {
+            return `<ul>${ingredientes.map(ingrediente => `<li>${ingrediente}</li>`).reduce((a, b) => a + b, '')}</ul>`;
+        }
+
+        function getCard(receita) {
+            return `
+                <div class="card">
+                    <img src="${receita.imagem}" class="card-img-top" alt="${receita.titulo}">
+                    <div class="card-body">
+                        <h5 class="card-title">${receita.titulo}</h5>
+                        <div class="card-text">
+                            ${getListaIngredientes(receita.ingredientes)}
+                            <hr>
+                            ${receita.preparo}
+                        </div>
+                    </div>
+                </div>`;
+        }
+
+        function preencheCatalogo() {
+            const pnlCatalogo = document.getElementById('pnlCatalogo');
+            const htmlReceitas = receitas.map(receita => getCard(receita)).reduce((a, b) => a + b, '');
+            pnlCatalogo.innerHTML = htmlReceitas;
+        }
+    </script>
+
+</body>
+
+</html>
